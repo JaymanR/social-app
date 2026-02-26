@@ -11,7 +11,7 @@ import { Nav } from "../layout/nav/nav";
 })
 export class App implements OnInit {
   private http = inject(HttpClient);
-  protected readonly title = signal('Dating App');
+  protected readonly title = signal('Social App');
   protected members = signal<any>([]);
 
     async ngOnInit() {
