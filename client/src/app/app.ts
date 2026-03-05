@@ -4,7 +4,7 @@ import { lastValueFrom } from 'rxjs';
 import { Nav } from "../layout/nav/nav";
 import { AccountService } from '../core/services/account-service';
 import { User } from '../types/user';
-import { RouterOutlet } from "@angular/router";
+import { Router, RouterOutlet } from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -14,6 +14,7 @@ import { RouterOutlet } from "@angular/router";
 })
 export class App implements OnInit {
   private accountService = inject(AccountService);
+  protected router = inject(Router);
   private http = inject(HttpClient);
   protected readonly title = signal('Social App');
   protected members = signal<User[]>([]);
