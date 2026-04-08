@@ -8,10 +8,10 @@ import { authGuard } from '../core/guards/auth-guard';
 import { TestErrors } from '../features/test-errors/test-errors';
 import { NotFound } from '../shared/errors/not-found/not-found';
 import { ServerError } from '../shared/errors/server-error/server-error';
-import { memberResolver } from '../features/members/member-resolver';
-import { MemberMessages } from '../features/members/member-messages/member-messages';
-import { MemberPhotos } from '../features/members/member-photos/member-photos';
 import { MemberProfile } from '../features/members/member-profile/member-profile';
+import { MemberPhotos } from '../features/members/member-photos/member-photos';
+import { MemberMessages } from '../features/members/member-messages/member-messages';
+import { memberResolver } from '../features/members/member-resolver';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -20,7 +20,7 @@ export const routes: Routes = [
     runGuardsAndResolvers: 'always',
     canActivate: [authGuard],
     children: [
-      { path: 'members', component: MemberList, canActivate: [authGuard] },
+      { path: 'members', component: MemberList },
       {
         path: 'members/:id',
         resolve: { member: memberResolver },
